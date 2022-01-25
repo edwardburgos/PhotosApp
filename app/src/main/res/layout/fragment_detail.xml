@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.photosapp.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/size_16"
+        android:paddingTop="@dimen/size_16"
+        android:paddingEnd="@dimen/size_16">
+
+        <TextView
+            android:id="@+id/property_type_text"
+            android:layout_width="@dimen/size_360"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.selectedPhoto.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_letter"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/photo_title" />
+
+        <ImageView
+            android:layout_width="@dimen/size_360"
+            android:layout_height="@dimen/size_360"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/property_type_text"
+            app:imageUrl="@{viewModel.selectedPhoto.url}"
+            tools:background="@drawable/d32776" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
