@@ -32,6 +32,15 @@
             app:layout_constraintVertical_bias="1.0"
             app:listDataInSnap="@{viewModel.photos}"
             tools:listitem="@layout/photo_extended_item" />
+
+        <ImageView
+            android:layout_width="@dimen/size_100"
+            android:layout_height="@dimen/size_100"
+            app:ApiStatus="@{viewModel.status}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
