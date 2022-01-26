@@ -9,34 +9,32 @@
             type="com.example.photosapp.entities.Photo"/>
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_view_director"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="@dimen/size_64"
+            android:layout_height="@dimen/size_64"
+            android:layout_marginTop="@dimen/size_8"
+            android:layout_marginEnd="@dimen/size_16"
+            android:layout_marginBottom="@dimen/size_8"
             app:imageUrl="@{photo.url}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:background="@drawable/d32776_150" />
+            tools:background="@drawable/ic_d32776_150" />
 
         <TextView
             android:id="@+id/text_view_name"
-            android:layout_width="312dp"
+            android:layout_width="@dimen/size_312"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_8"
             android:text="@{photo.title}"
-            android:textSize="16sp"
+            android:textSize="@dimen/normal_letter"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/image_view_director"
@@ -45,9 +43,9 @@
             tools:text="@string/photo_title" />
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_1"
+            android:layout_marginTop="@dimen/size_4"
             android:background="#E3E3E3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

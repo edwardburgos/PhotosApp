@@ -13,8 +13,6 @@ class OverviewViewModel(
     val mainRepository: MainRepository
 ) : AndroidViewModel(app) {
 
-    //private val mainRepository = MainRepository(app)
-
     private val _status = MutableLiveData<ApiStatus>()
     val status: MutableLiveData<ApiStatus>
         get() = _status
@@ -23,10 +21,6 @@ class OverviewViewModel(
     val photos: LiveData<List<Photo>>
         get() = _photos
 
-//    private val _comments = MutableLiveData<List<Comment>>()
-//    val comments: LiveData<List<Comment>>
-//        get() = _comments
-
     private val _navigateToSelectedPhoto = MutableLiveData<Photo>()
     val navigateToSelectedPhoto: LiveData<Photo>
         get() = _navigateToSelectedPhoto
@@ -34,8 +28,6 @@ class OverviewViewModel(
     init {
         getPhotos(true)
     }
-
-
 
     fun getPhotos(showLoading: Boolean) {
         viewModelScope.launch {
@@ -52,20 +44,10 @@ class OverviewViewModel(
                 _status.value = ApiStatus.DONE
                 if (listResult.size > 0) {
                     _photos.value = listResult.sortedBy { it.id }.reversed()
-
-//                    if(movies is Resource.Success && directors is Resource.Success){
-//                        homeItemsList.add(HomeRecyclerViewItem.Title(1, "Recommended Movies"))
-//                        homeItemsList.addAll(movies.value)
-//                        homeItemsList.add(HomeRecyclerViewItem.Title(2, "Top Directors"))
-//                        homeItemsList.addAll(directors.value)
-//                        _homeListItemsLiveData.postValue(Resource.Success(homeItemsList))
-//                    }else{
                     withContext(Dispatchers.IO) {
                         mainRepository.insertPhotos(listResult)
-
                     }
                 }
-                println("API FUNCIONA")
             } catch (t: Throwable) {
                 lateinit var databasePhotos: List<Photo>
                 withContext(Dispatchers.IO) {

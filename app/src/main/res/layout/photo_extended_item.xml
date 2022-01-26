@@ -17,9 +17,9 @@
             android:id="@+id/property_type_text"
             android:layout_width="@dimen/size_360"
             android:layout_height="@dimen/size_50"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginTop="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
             android:text="@{photo.title}"
             android:textColor="@color/black"
             android:textSize="@dimen/normal_letter"
@@ -34,15 +34,15 @@
             android:id="@+id/imageView"
             android:layout_width="@dimen/size_360"
             android:layout_height="@dimen/size_360"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginTop="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
             app:imageUrl="@{photo.url}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/property_type_text"
-            tools:background="@drawable/d32776" />
+            tools:background="@drawable/ic_d32776" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

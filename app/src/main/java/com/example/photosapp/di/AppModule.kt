@@ -1,6 +1,5 @@
 package com.example.photosapp.di
 
-import androidx.databinding.ViewDataBinding
 import com.example.photosapp.database.PhotosDatabase
 import com.example.photosapp.databinding.PhotoExtendedItemBinding
 import com.example.photosapp.databinding.PhotoItemBinding
@@ -9,7 +8,6 @@ import com.example.photosapp.detail.DetailViewModel
 import com.example.photosapp.detail.PhotosExtendedViewHolder
 import com.example.photosapp.entities.Photo
 import com.example.photosapp.network.ApiService
-
 import com.example.photosapp.overview.OverviewViewModel
 import com.example.photosapp.overview.ViewHolders
 import com.example.photosapp.repository.MainRepository
@@ -24,9 +22,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 private val BASE_URL = "https://jsonplaceholder.typicode.com/"
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
+
 val appModule = module {
     single { PhotosDatabase.getInstance(androidContext())}
     factory { (get() as PhotosDatabase).photoDao }
@@ -43,8 +43,5 @@ val appModule = module {
     factory { (binding: PhotoItemBinding) -> ViewHolders.PhotoViewHolder(binding) }
     factory { (binding: PhotoItemOptionalBinding) -> ViewHolders.PhotoOptionalViewHolder(binding) }
     viewModel { OverviewViewModel(androidApplication(), get())}
-    viewModel { (photo : Photo) -> DetailViewModel(photo, androidApplication(), get()) }
-    //factory { (get() as PhotosDatabase).photoDao }
-//    private val photoDao = PhotosDatabase.getInstance(application).photoDao
-
+    viewModel { (photo : Photo) -> DetailViewModel(androidApplication(), get()) }
 }

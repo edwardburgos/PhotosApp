@@ -1,7 +1,6 @@
 package com.example.photosapp.database
 
 import com.example.photosapp.entities.Photo
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy

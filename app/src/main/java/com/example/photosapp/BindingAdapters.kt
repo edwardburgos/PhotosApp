@@ -12,10 +12,8 @@ import com.example.photosapp.entities.Photo
 import com.example.photosapp.overview.ApiStatus
 import com.example.photosapp.detail.PhotosSnapAdapter
 import com.bumptech.glide.load.model.LazyHeaders
-
 import com.bumptech.glide.load.model.GlideUrl
 import com.example.photosapp.overview.PhotosAdapter
-
 
 @BindingAdapter("listDataInSnap")
 fun bindRecyclerViewWithSnap(recyclerView: RecyclerView, data: List<Photo>?) {
@@ -29,12 +27,6 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Photo>?) {
     adapter.submitList(data)
 }
 
-//@BindingAdapter("listComments")
-//fun bindCommentsRecyclerView(recyclerView: RecyclerView, data: List<Comment>?) {
-//    val adapter = recyclerView.adapter as CommentsAdapter
-//    adapter.submitList(data)
-//}
-
 // Use Glide to display the image
 @BindingAdapter("imageUrl") // To use this * binding annotations *, 'kotlin-kapt' plugin is needed
 fun bindImage(imgView: ImageView, url: String?) {
@@ -44,7 +36,6 @@ fun bindImage(imgView: ImageView, url: String?) {
                 .addHeader("User-Agent", WebSettings.getDefaultUserAgent(imgView.context))
                 .build()
         )
-       // val imgUrl = it.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
             .load(url)
             .apply(
@@ -53,15 +44,8 @@ fun bindImage(imgView: ImageView, url: String?) {
                 .error(R.drawable.ic_baseline_broken_image_24))
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(imgView)
-
-//        Picasso.get()
-//            .load(it)
-//            .placeholder(R.drawable.loading_animation)
-//            .error(R.drawable.ic_baseline_broken_image_24)
-//            .into(imgView)
     }
 }
-
 
 @BindingAdapter("ApiStatus")
 fun bindStatus(statusImageView: ImageView, status: ApiStatus?) {
@@ -85,16 +69,3 @@ fun bindStatus(statusImageView: ImageView, status: ApiStatus?) {
         }
     }
 }
-//
-//@BindingAdapter("ApiStatusCommentVisibility")
-//fun bindStatusCommentVisibility(commentsLabel: TextView, status: ApiStatus?) {
-//    when (status) {
-//        ApiStatus.DONE -> {
-//            commentsLabel.visibility = View.VISIBLE
-//            commentsLabel.requestLayout()
-//        }
-//        else -> {
-//            commentsLabel.visibility = View.GONE
-//        }
-//    }
-//}
