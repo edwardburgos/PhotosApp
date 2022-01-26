@@ -15,14 +15,18 @@ import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 import com.example.photosapp.databinding.FragmentDetailBinding
 import com.example.photosapp.overview.OverviewFragmentDirections
 import com.example.photosapp.overview.OverviewViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class DetailFragment : Fragment() {
 
     lateinit var binding: FragmentDetailBinding
 
-    private val viewModel: DetailViewModel by lazy {
-        ViewModelProvider(this).get(DetailViewModel::class.java)
-    }
+//    private val viewModel: DetailViewModel by lazy {
+//        ViewModelProvider(this).get(DetailViewModel::class.java)
+//    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,13 +38,17 @@ class DetailFragment : Fragment() {
         val application = requireNotNull(activity).application
 
         binding.lifecycleOwner = viewLifecycleOwner
+//
+      val postProperty = DetailFragmentArgs.fromBundle(requireArguments()).selectedPhoto
+        val viewModel: DetailViewModel by viewModel {
+            parametersOf(postProperty)
+        }
 
-        val postProperty = DetailFragmentArgs.fromBundle(requireArguments()).selectedPhoto
-
-        val viewModelFactory = DetailViewModelFactory(postProperty, application )
-        val detailViewModel = ViewModelProvider(this, viewModelFactory)
-            .get(DetailViewModel::class.java)
-        binding.viewModel = detailViewModel
+//
+//        val viewModelFactory = DetailViewModelFactory(postProperty, application )
+//        val detailViewModel = ViewModelProvider(this, viewModelFactory)
+//            .get(DetailViewModel::class.java)
+        binding.viewModel = viewModel
 
         val layoutManager = binding.photosSnap.layoutManager
         val snapHelper = PagerSnapHelper()

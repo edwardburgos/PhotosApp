@@ -3,17 +3,17 @@ package com.example.photosapp.overview
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.photosapp.entities.Photo
-import com.example.photosapp.network.Api
 import com.example.photosapp.repository.MainRepository
 import kotlinx.coroutines.*
 
 enum class ApiStatus { LOADING, ERROR, DONE }
 
 class OverviewViewModel(
-    app: Application
+    app: Application,
+    val mainRepository: MainRepository
 ) : AndroidViewModel(app) {
 
-    private val mainRepository = MainRepository(app)
+    //private val mainRepository = MainRepository(app)
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: MutableLiveData<ApiStatus>
@@ -65,6 +65,7 @@ class OverviewViewModel(
 
                     }
                 }
+                println("API FUNCIONA")
             } catch (t: Throwable) {
                 lateinit var databasePhotos: List<Photo>
                 withContext(Dispatchers.IO) {

@@ -2,17 +2,19 @@ package com.example.photosapp.repository
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.example.photosapp.database.PhotoDao
 import com.example.photosapp.database.PhotosDatabase
 import com.example.photosapp.entities.Photo
-import com.example.photosapp.network.Api
+import com.example.photosapp.network.ApiService
 import com.example.photosapp.overview.ApiStatus
 import kotlinx.coroutines.*
 
 class MainRepository(
-    application: Application
+    val photoDao: PhotoDao,
+    val apiService: ApiService
 ) {
 
-    private val photoDao = PhotosDatabase.getInstance(application).photoDao
+ ///   private val photoDao = PhotosDatabase.getInstance(application).photoDao
 
 //    fun getComments(
 //        post: Post,
@@ -67,7 +69,7 @@ class MainRepository(
 //    }
 
 
-    fun getPhotosFromApi() = Api.retrofitService.getPhotos(0, 100)
+    fun getPhotosFromApi() = apiService.getPhotos(0, 100)
     fun getPhotosFromDatabase() = photoDao.getAllPhotos()
     fun insertPhotos(photos: List<Photo>) = photoDao.insertAll(photos)
 

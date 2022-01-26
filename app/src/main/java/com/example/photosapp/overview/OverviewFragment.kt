@@ -9,15 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class OverviewFragment : Fragment() {
 
     lateinit var binding: FragmentOverviewBinding
 
-    private val viewModel: OverviewViewModel by lazy {
-        ViewModelProvider(this).get(OverviewViewModel::class.java)
-    }
+//    private val viewModel: OverviewViewModel by lazy {
+//        ViewModelProvider(this).get(OverviewViewModel::class.java)
+//    }
+
+    val viewModel: OverviewViewModel by viewModel()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +34,11 @@ class OverviewFragment : Fragment() {
 
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val viewModelFactory = OverviewViewModelFactory(application)
-        val overviewViewModel = ViewModelProvider(this, viewModelFactory)
-            .get(OverviewViewModel::class.java)
-        binding.viewModel = overviewViewModel
+//        val viewModelFactory = OverviewViewModelFactory(application)
+//        val overviewViewModel = ViewModelProvider(this, viewModelFactory)
+//            .get(OverviewViewModel::class.java)
+
+       binding.viewModel = viewModel
 
 
         binding.postsGrid.adapter = PhotosAdapter(PhotosAdapter.OnClickListener {

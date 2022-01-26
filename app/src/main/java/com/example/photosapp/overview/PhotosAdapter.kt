@@ -7,12 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.photosapp.R
+import com.example.photosapp.databinding.PhotoExtendedItemBinding
 import com.example.photosapp.databinding.PhotoItemBinding
 import com.example.photosapp.databinding.PhotoItemOptionalBinding
+import com.example.photosapp.detail.PhotosExtendedViewHolder
 import com.example.photosapp.entities.Photo
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import org.koin.core.parameter.parametersOf
+
 import java.lang.IllegalArgumentException
 
-class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback) {
+class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback),
+    KoinComponent {
   //  class HomeRecyclerViewAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>() {
 
 //    class PhotosPropertyViewHolder(private val binding: PhotoItemBinding): RecyclerView.ViewHolder(binding.root) {
@@ -38,11 +45,17 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
         parent: ViewGroup,
         viewType: Int
     ): ViewHolders {
+        val viewHolder: ViewHolders.PhotoViewHolder by inject {
+            parametersOf(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
+        }
+        val viewHolderOptional: ViewHolders.PhotoOptionalViewHolder by inject {
+            parametersOf(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
+        }
         return when (viewType) {
             R.layout.photo_item ->
-                return ViewHolders.PhotoViewHolder(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
+                return viewHolder
             R.layout.photo_item_optional ->
-                return ViewHolders.PhotoOptionalViewHolder(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
+                return viewHolderOptional
             else -> throw IllegalArgumentException("Invalid viewType provided")
         }
     }

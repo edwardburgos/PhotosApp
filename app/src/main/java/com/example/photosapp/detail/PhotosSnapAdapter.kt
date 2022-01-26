@@ -7,16 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.photosapp.databinding.PhotoExtendedItemBinding
 import com.example.photosapp.entities.Photo
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
+import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class PhotosSnapAdapter(): ListAdapter<Photo, PhotosSnapAdapter.PhotosExtendedViewHolder>(DiffCallback) {
+class PhotosSnapAdapter(): ListAdapter<Photo, PhotosExtendedViewHolder>(DiffCallback), KoinComponent {
   //  class HomeRecyclerViewAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>() {
 
-    class PhotosExtendedViewHolder(private val binding: PhotoExtendedItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bin(photo: Photo) {
-            binding.photo = photo
-            binding.executePendingBindings()
-        }
-    }
+
 
   //  var itemClickListener: ((view: View, item: Photo, position: Int) -> Unit)? = null
 
@@ -34,7 +34,11 @@ class PhotosSnapAdapter(): ListAdapter<Photo, PhotosSnapAdapter.PhotosExtendedVi
         parent: ViewGroup,
         viewType: Int
     ): PhotosExtendedViewHolder {
-        return PhotosExtendedViewHolder(PhotoExtendedItemBinding.inflate(LayoutInflater.from(parent.context)))
+        val viewHolder: PhotosExtendedViewHolder by inject {
+            parametersOf(PhotoExtendedItemBinding.inflate(LayoutInflater.from(parent.context)))
+        }
+        return viewHolder
+
 
     }
 

@@ -7,9 +7,9 @@ import com.example.photosapp.overview.ApiStatus
 import com.example.photosapp.repository.MainRepository
 import kotlinx.coroutines.*
 
-class DetailViewModel(photo: Photo, app: Application) : AndroidViewModel(app) {
+class DetailViewModel(photo: Photo, app: Application, val mainRepository: MainRepository) : AndroidViewModel(app) {
 
-    private val mainRepository = MainRepository(app)
+   // private val mainRepository = MainRepository(app)
 
     private val _selectedPhoto = MutableLiveData<Photo>()
     val selectedPhoto: LiveData<Photo>
