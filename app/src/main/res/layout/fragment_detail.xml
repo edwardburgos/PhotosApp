@@ -16,30 +16,23 @@
         android:paddingTop="@dimen/size_16"
         android:paddingEnd="@dimen/size_16">
 
-        <TextView
-            android:id="@+id/property_type_text"
-            android:layout_width="@dimen/size_360"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@{viewModel.selectedPhoto.title}"
-            android:textColor="@color/black"
-            android:textSize="@dimen/normal_letter"
-            android:textStyle="bold"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photos_snap"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_0"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/size_6"
+            android:paddingBottom="@dimen/size_6"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/photo_title" />
+            app:layout_constraintVertical_bias="1.0"
+            app:listDataInSnap="@{viewModel.photos}"
+            tools:listitem="@layout/photo_extended_item" />
 
-        <ImageView
-            android:layout_width="@dimen/size_360"
-            android:layout_height="@dimen/size_360"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/property_type_text"
-            app:imageUrl="@{viewModel.selectedPhoto.url}"
-            tools:background="@drawable/d32776" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

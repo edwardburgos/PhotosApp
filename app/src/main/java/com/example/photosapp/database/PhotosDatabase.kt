@@ -4,14 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.photosapp.entities.Album
 import com.example.photosapp.entities.Photo
 
-@Database(entities = [Photo::class, Album::class], version = 2, exportSchema = false)
+@Database(entities = [Photo::class], version = 3, exportSchema = false)
 abstract class PhotosDatabase : RoomDatabase() {
 
     abstract val photoDao: PhotoDao
-    abstract val albumDao: AlbumDao
 
     companion object {
 

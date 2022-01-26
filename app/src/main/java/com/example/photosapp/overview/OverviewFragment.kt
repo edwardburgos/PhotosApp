@@ -19,10 +19,6 @@ class OverviewFragment : Fragment() {
         ViewModelProvider(this).get(OverviewViewModel::class.java)
     }
 
-    private val handler = Handler(Looper.getMainLooper())
-    private lateinit var runnable: Runnable
-    private val delay = 900000
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,18 +56,5 @@ class OverviewFragment : Fragment() {
         setHasOptionsMenu(true)
 
         return binding.root
-    }
-
-    override fun onResume() {
-        handler.postDelayed(Runnable {
-            handler.postDelayed(runnable, delay.toLong())
-            viewModel.getPhotos(false)
-        }.also { runnable = it }, delay.toLong())
-        super.onResume()
-    }
-
-    override fun onPause() {
-        handler.removeCallbacks(runnable!!)
-        super.onPause()
     }
 }

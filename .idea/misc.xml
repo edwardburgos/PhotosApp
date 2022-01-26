@@ -8,9 +8,12 @@
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/loading_img.xml" value="0.25277777777777777" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/album_item.xml" value="0.25" />
-        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_detail.xml" value="0.4" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_overview.xml" value="0.1808972503617945" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_extended_item.xml" value="0.152" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item.xml" value="0.4" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item_option.xml" value="0.13020833333333334" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item_optional.xml" value="0.4" />
       </map>
     </option>
   </component>

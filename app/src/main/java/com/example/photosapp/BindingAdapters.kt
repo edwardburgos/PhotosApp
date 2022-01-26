@@ -3,8 +3,6 @@ package com.example.photosapp
 import android.view.View
 import android.webkit.WebSettings
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -12,13 +10,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.photosapp.entities.Photo
 import com.example.photosapp.overview.ApiStatus
-import com.example.photosapp.overview.PhotosAdapter
+import com.example.photosapp.detail.PhotosSnapAdapter
 import com.bumptech.glide.load.model.LazyHeaders
 
 import com.bumptech.glide.load.model.GlideUrl
+import com.example.photosapp.overview.PhotosAdapter
 
 
-
+@BindingAdapter("listDataInSnap")
+fun bindRecyclerViewWithSnap(recyclerView: RecyclerView, data: List<Photo>?) {
+    val adapter = recyclerView.adapter as PhotosSnapAdapter
+    adapter.submitList(data)
+}
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Photo>?) {

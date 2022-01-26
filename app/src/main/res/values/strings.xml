@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PhotosApp</string>
     <string name="photo_title">Photo Title</string>
-    <string name="album_title">Album Title</string>
     <string name="view_all">View All</string>
 </resources>

@@ -13,7 +13,6 @@ class MainRepository(
 ) {
 
     private val photoDao = PhotosDatabase.getInstance(application).photoDao
-    private val albumDao = PhotosDatabase.getInstance(application).albumDao
 
 //    fun getComments(
 //        post: Post,
@@ -67,49 +66,9 @@ class MainRepository(
 //        }
 //    }
 
-    fun getPhotos(
-        showLoading: Boolean,
-        viewModelScope: CoroutineScope,
-        _status: MutableLiveData<ApiStatus>,
-        _photos: MutableLiveData<List<Photo>>
-    ) {
-        viewModelScope.launch {
-            lateinit var getPropertiesDeferred: Deferred<List<Photo>>
-            withContext(Dispatchers.IO) {
-                getPropertiesDeferred = Api.retrofitService.getPhotos(0, 100)
-            }
-            try {
-                if (showLoading) _status.value = ApiStatus.LOADING
-                lateinit var listResult: List<Photo>
-                withContext(Dispatchers.IO) {
-                    listResult = getPropertiesDeferred.await()
-                }
-                _status.value = ApiStatus.DONE
-                if (listResult.size > 0) {
-                    _photos.value = listResult.sortedBy { it.id }.reversed()
-                    withContext(Dispatchers.IO) {
-                        photoDao.insertAll(listResult)
 
-                    }
-                }
-                withContext(Dispatchers.IO) {
-                    println(photoDao.getAllPhotos().size)
+    fun getPhotosFromApi() = Api.retrofitService.getPhotos(0, 100)
+    fun getPhotosFromDatabase() = photoDao.getAllPhotos()
+    fun insertPhotos(photos: List<Photo>) = photoDao.insertAll(photos)
 
-                }
-
-            } catch (t: Throwable) {
-                lateinit var databasePhotos: List<Photo>
-                withContext(Dispatchers.IO) {
-                    databasePhotos = photoDao.getAllPhotos()
-                }
-                if (t.message == "Unable to resolve host \"jsonplaceholder.typicode.com\": No address associated with hostname" && databasePhotos.size != 0) {
-                    _photos.value = databasePhotos
-                    _status.value = ApiStatus.DONE
-                } else {
-                    _status.value = ApiStatus.ERROR
-                }
-
-            }
-        }
-    }
 }

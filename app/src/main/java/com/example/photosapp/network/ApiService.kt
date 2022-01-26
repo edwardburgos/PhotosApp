@@ -1,6 +1,5 @@
 package com.example.photosapp.network
 
-import com.example.photosapp.entities.Album
 import com.example.photosapp.entities.Photo
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -27,10 +26,6 @@ interface ApiService {
     @GET("photos")
     fun getPhotos(@Query("_start") startAt: Int, @Query("_limit") endAT: Int):
             Deferred<List<Photo>>
-
-    @GET("albums")
-    fun getAlbums():
-            Deferred<List<Album>>
 }
 
 object Api {

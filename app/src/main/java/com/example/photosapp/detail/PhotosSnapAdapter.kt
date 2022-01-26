@@ -1,26 +1,22 @@
-package com.example.photosapp.overview
+package com.example.photosapp.detail
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.photosapp.R
-import com.example.photosapp.databinding.PhotoItemBinding
-import com.example.photosapp.databinding.PhotoItemOptionalBinding
+import com.example.photosapp.databinding.PhotoExtendedItemBinding
 import com.example.photosapp.entities.Photo
-import java.lang.IllegalArgumentException
 
-class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, ViewHolders>(DiffCallback) {
+class PhotosSnapAdapter(): ListAdapter<Photo, PhotosSnapAdapter.PhotosExtendedViewHolder>(DiffCallback) {
   //  class HomeRecyclerViewAdapter : RecyclerView.Adapter<HomeRecyclerViewHolder>() {
 
-//    class PhotosPropertyViewHolder(private val binding: PhotoItemBinding): RecyclerView.ViewHolder(binding.root) {
-//        fun bin(photo: Photo) {
-//            binding.photo = photo
-//            binding.executePendingBindings()
-//        }
-//    }
+    class PhotosExtendedViewHolder(private val binding: PhotoExtendedItemBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bin(photo: Photo) {
+            binding.photo = photo
+            binding.executePendingBindings()
+        }
+    }
 
   //  var itemClickListener: ((view: View, item: Photo, position: Int) -> Unit)? = null
 
@@ -37,17 +33,12 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolders {
-        return when (viewType) {
-            R.layout.photo_item ->
-                return ViewHolders.PhotoViewHolder(PhotoItemBinding.inflate(LayoutInflater.from(parent.context)))
-            R.layout.photo_item_optional ->
-                return ViewHolders.PhotoOptionalViewHolder(PhotoItemOptionalBinding.inflate(LayoutInflater.from(parent.context)))
-            else -> throw IllegalArgumentException("Invalid viewType provided")
-        }
+    ): PhotosExtendedViewHolder {
+        return PhotosExtendedViewHolder(PhotoExtendedItemBinding.inflate(LayoutInflater.from(parent.context)))
+
     }
 
-    override fun onBindViewHolder(holder: ViewHolders, position: Int) {
+    override fun onBindViewHolder(holder: PhotosExtendedViewHolder, position: Int) {
 //        holder.itemView.setOnClickListener {
 //            onClickListener.onClick(photoProperty)
 //        }
@@ -59,14 +50,10 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
 //        }
 
         val item = getItem(position)
-        holder.itemView.setOnClickListener {
-            onClickListener.onClick(item)
-        }
-        when (holder) {
-            is ViewHolders.PhotoViewHolder -> holder.bin(item)
-            is ViewHolders.PhotoOptionalViewHolder -> holder.bin(item)
-
-        }
+//        holder.itemView.setOnClickListener {
+//            onClickListener.onClick(item)
+//        }
+        holder.bin(item)
 
        // val photoProperty = getItem(position)
 //        if (position % 2 == 0) {
@@ -87,12 +74,12 @@ class PhotosAdapter(val onClickListener: OnClickListener): ListAdapter<Photo, Vi
 //        holder.bin(photoProperty)
     }
 
-    class OnClickListener(val clickListener: (photo: Photo) -> Unit) {
-        fun onClick(photo: Photo) = clickListener(photo)
-    }
+//    class OnClickListener(val clickListener: (photo: Photo) -> Unit) {
+//        fun onClick(photo: Photo) = clickListener(photo)
+//    }
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position % 2 == 0) R.layout.photo_item else R.layout.photo_item_optional
-
-    }
+//    override fun getItemViewType(position: Int): Int {
+//        return if (position % 2 == 0) R.layout.photo_item else R.layout.photo_item_optional
+//
+//    }
 }

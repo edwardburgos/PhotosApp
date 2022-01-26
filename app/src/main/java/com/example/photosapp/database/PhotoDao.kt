@@ -13,6 +13,6 @@ interface PhotoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(photos: List<Photo>)
 
-    @Query("SELECT * FROM photo_table")
+    @Query("SELECT * FROM photo_table ORDER BY id DESC")
     fun getAllPhotos(): List<Photo>
 }
