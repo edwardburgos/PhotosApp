@@ -3,14 +3,14 @@ package com.example.photosapp.overview
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.photosapp.entities.Photo
-import com.example.photosapp.repository.MainRepository
+import com.example.photosapp.repository.MainRepositoryImpl
 import kotlinx.coroutines.*
 
 enum class ApiStatus { LOADING, ERROR, DONE }
 
 class OverviewViewModel(
     app: Application,
-    val mainRepository: MainRepository
+    val mainRepository: MainRepositoryImpl
 ) : AndroidViewModel(app) {
 
     private val _status = MutableLiveData<ApiStatus>()

@@ -4,10 +4,10 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.photosapp.entities.Photo
 import com.example.photosapp.overview.ApiStatus
-import com.example.photosapp.repository.MainRepository
+import com.example.photosapp.repository.MainRepositoryImpl
 import kotlinx.coroutines.*
 
-class DetailViewModel(app: Application, val mainRepository: MainRepository) :
+class DetailViewModel(app: Application, val mainRepository: MainRepositoryImpl) :
     AndroidViewModel(app) {
 
     private val _status = MutableLiveData<ApiStatus>()
