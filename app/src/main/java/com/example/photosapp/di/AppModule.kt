@@ -21,23 +21,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private val BASE_URL = "https://jsonplaceholder.typicode.com/"
-
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
 val appModule = module {
-    single { PhotosDatabase.getInstance(androidContext())}
-    factory { (get() as PhotosDatabase).photoDao }
-    single {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .build()
-            .create(ApiService::class.java)
-    }
     single { MainRepository(get(), get()) }
     factory { (binding: PhotoExtendedItemBinding) -> PhotosExtendedViewHolder(binding) }
     factory { (binding: PhotoItemBinding) -> ViewHolders.PhotoViewHolder(binding) }
