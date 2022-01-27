@@ -19,10 +19,10 @@ class DetailViewModel(app: Application, val mainRepository: MainRepository) :
         get() = _photos
 
     init {
-        getPhotos()
+        getPhotosDetail()
     }
 
-    private fun getPhotos() {
+    fun getPhotosDetail() {
         viewModelScope.launch {
             lateinit var getPropertiesDeferred: Deferred<List<Photo>>
             withContext(Dispatchers.IO) {

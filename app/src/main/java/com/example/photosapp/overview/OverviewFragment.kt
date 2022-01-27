@@ -38,7 +38,7 @@ class OverviewFragment : Fragment() {
         })
 
         binding.swipeRefreshLayout.setOnRefreshListener {
-            viewModel.getPhotos(false)
+            viewModel.getPhotosOverview(false)
             binding.swipeRefreshLayout.setRefreshing(false);
         }
 

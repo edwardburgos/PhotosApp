@@ -26,10 +26,10 @@ class OverviewViewModel(
         get() = _navigateToSelectedPhoto
 
     init {
-        getPhotos(true)
+        getPhotosOverview(true)
     }
 
-    fun getPhotos(showLoading: Boolean) {
+    fun getPhotosOverview(showLoading: Boolean) {
         viewModelScope.launch {
             lateinit var getPropertiesDeferred: Deferred<List<Photo>>
             withContext(Dispatchers.IO) {
