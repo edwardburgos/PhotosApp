@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1935185185185185" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_baseline_broken_image_24.xml" value="0.2574074074074074" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_bx_loader_circle.xml" value="0.25277777777777777" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_bx_wifi_off.xml" value="0.23981481481481481" />
@@ -11,9 +12,9 @@
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/loading_img.xml" value="0.25277777777777777" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/album_item.xml" value="0.25" />
-        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_detail.xml" value="0.4" />
-        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_overview.xml" value="0.1808972503617945" />
-        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_extended_item.xml" value="0.152" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/fragment_overview.xml" value="0.264" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_extended_item.xml" value="0.25" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item.xml" value="0.4" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item_option.xml" value="0.13020833333333334" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/layout/photo_item_optional.xml" value="0.4" />

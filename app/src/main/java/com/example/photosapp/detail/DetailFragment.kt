@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.*
 import com.example.photosapp.databinding.FragmentDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,15 +39,14 @@ class DetailFragment : Fragment() {
 
         viewModel.photos.observe(viewLifecycleOwner, Observer {
             if (null != it) {
-                val currentView = view
-                val offset =
-                    currentView?.let { (binding.photosSnap.width - currentView.width) / 4 } ?: 0
-                (layoutManager as LinearLayoutManager).scrollToPositionWithOffset(
-                    100 - postProperty.id,
-                    offset
-                )
+                layoutManager?.scrollToPosition(100 - postProperty.id)
             }
         })
+
+        binding.topAppBar.setNavigationOnClickListener {
+            val navController = Navigation.findNavController(requireView())
+            navController?.navigateUp()
+        }
 
         return binding.root
     }

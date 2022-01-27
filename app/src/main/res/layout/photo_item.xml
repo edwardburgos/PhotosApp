@@ -9,7 +9,6 @@
             type="com.example.photosapp.entities.Photo"/>
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,8 +18,8 @@
             android:layout_width="@dimen/size_64"
             android:layout_height="@dimen/size_64"
             android:layout_marginStart="@dimen/size_16"
-            android:layout_marginTop="@dimen/size_8"
-            android:layout_marginBottom="@dimen/size_8"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             app:imageUrl="@{photo.thumbnailUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,11 +29,12 @@
 
         <TextView
             android:id="@+id/text_view_name"
-            android:layout_width="@dimen/size_312"
+            android:layout_width="@dimen/size_304"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/size_8"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="@dimen/size_16"
             android:text="@{photo.title}"
+            android:textColor="@color/black"
             android:textSize="@dimen/normal_letter"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,14 +47,11 @@
         <View
             android:layout_width="@dimen/size_0"
             android:layout_height="@dimen/size_1"
-            android:layout_marginTop="@dimen/size_4"
             android:background="#E3E3E3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_view_director"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
