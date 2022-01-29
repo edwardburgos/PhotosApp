@@ -34,7 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="@dimen/size_16"
             android:text="@{photo.title}"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/normal_letter"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

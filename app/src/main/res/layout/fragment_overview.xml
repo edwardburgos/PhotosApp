@@ -21,9 +21,9 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
+                android:background="@color/backgroundColor"
                 app:title="@string/app_name"
-                app:titleTextColor="@color/black"
+                app:titleTextColor="@color/textColor"
 
                 />
         </com.google.android.material.appbar.AppBarLayout>
@@ -32,6 +32,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
             tools:context="com.example.photosapp.MainActivity">
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

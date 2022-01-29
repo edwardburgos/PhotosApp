@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/NEW VERSION/CLONED/PhotosApp/app/src/main/res/layout/fragment_detail.xml" value="0.17481884057971014" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/NEW VERSION/CLONED/PhotosApp/app/src/main/res/layout/fragment_overview.xml" value="0.17481884057971014" />
+        <entry key="..\:/APLICACIONES/NERDERY/ANDROID/NEW VERSION/CLONED/PhotosApp/app/src/main/res/layout/photo_item.xml" value="0.17481884057971014" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1935185185185185" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_baseline_broken_image_24.xml" value="0.2574074074074074" />
         <entry key="..\:/APLICACIONES/NERDERY/ANDROID/PhotosApp/app/src/main/res/drawable/ic_bx_loader_circle.xml" value="0.25277777777777777" />
