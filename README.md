@@ -7,4 +7,4 @@ Photos App implements the following features > Retrieve photos from [API](https:
 
 ## Download APK
 To try the app, you must allow your phone to install apps from unknown origins<br/>
-[LINK](https://drive.google.com/file/d/1HNx53R_EhvmjsdJiA7cH4sJUVWxa4Cn6/view?usp=sharing)
+[LINK](https://drive.google.com/file/d/1zwYsog47ZYJOTzSEHAxZQBUF8FbW09BM/view?usp=sharing)

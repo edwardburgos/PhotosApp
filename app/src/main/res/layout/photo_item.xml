@@ -18,8 +18,8 @@
             android:layout_width="@dimen/size_64"
             android:layout_height="@dimen/size_64"
             android:layout_marginStart="@dimen/size_16"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="@dimen/size_16"
+            android:layout_marginBottom="@dimen/size_16"
             app:imageUrl="@{photo.thumbnailUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,23 +29,22 @@
 
         <TextView
             android:id="@+id/text_view_name"
-            android:layout_width="@dimen/size_304"
+            android:layout_width="@dimen/size_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/size_16"
             android:layout_marginEnd="@dimen/size_16"
             android:text="@{photo.title}"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/normal_letter"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/image_view_director"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/photo_title" />
 
         <View
-            android:layout_width="@dimen/size_0"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/size_1"
             android:background="#E3E3E3"
             app:layout_constraintBottom_toBottomOf="parent"

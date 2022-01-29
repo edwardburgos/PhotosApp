@@ -19,5 +19,5 @@ val appModule = module {
     factory { (binding: PhotoItemBinding) -> ViewHolders.PhotoViewHolder(binding) }
     factory { (binding: PhotoItemOptionalBinding) -> ViewHolders.PhotoOptionalViewHolder(binding) }
     viewModel { OverviewViewModel(androidApplication(), get())}
-    viewModel { (photo : Photo) -> DetailViewModel(androidApplication(), get()) }
+    viewModel { DetailViewModel(androidApplication(), get()) }
 }

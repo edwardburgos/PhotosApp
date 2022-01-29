@@ -16,6 +16,9 @@ class DetailFragment : Fragment() {
 
     lateinit var binding: FragmentDetailBinding
 
+    val viewModel: DetailViewModel by viewModel()
+    val snapHelper = PagerSnapHelper()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,20 +30,22 @@ class DetailFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         val postProperty = DetailFragmentArgs.fromBundle(requireArguments()).selectedPhoto
-        val viewModel: DetailViewModel by viewModel {
-            parametersOf(postProperty)
+
+        if (viewModel.currentPhotoPosition == 0) {
+            viewModel.currentPhotoPosition = 100 - postProperty.id
         }
+
         binding.viewModel = viewModel
 
         val layoutManager = binding.photosSnap.layoutManager
-        val snapHelper = PagerSnapHelper()
+
         snapHelper.attachToRecyclerView(binding.photosSnap)
         binding.photosSnap.adapter = PhotosSnapAdapter()
 
         viewModel.photos.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 (layoutManager as LinearLayoutManager).scrollToPositionWithOffset(
-                    100 - postProperty.id,
+                    viewModel.currentPhotoPosition,
                     15
                 )
             }
@@ -50,7 +55,17 @@ class DetailFragment : Fragment() {
             val navController = Navigation.findNavController(requireView())
             navController?.navigateUp()
         }
-
         return binding.root
+    }
+
+    override fun onPause() {
+        binding.photosSnap.layoutManager?.let {
+            snapHelper.findSnapView(it)?.let { position ->
+                viewModel.currentPhotoPosition = it.getPosition(position)
+                println("sábana")
+                println(it.getPosition(position))
+            }
+        }
+        super.onPause()
     }
 }
