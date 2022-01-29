@@ -10,6 +10,8 @@ import kotlinx.coroutines.*
 class DetailViewModel(app: Application, val mainRepository: MainRepositoryImpl) :
     AndroidViewModel(app) {
 
+    var currentPhotoPosition = 0
+
     private val _status = MutableLiveData<ApiStatus>()
     val status: MutableLiveData<ApiStatus>
         get() = _status
